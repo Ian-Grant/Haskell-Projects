@@ -10,4 +10,7 @@ whatGrade age
     | (age > 10) && (age <= 14) = "Middle School"
     | (age > 14) && (age <= 18) = "High School"
     | otherwise = "Go to college"
-
+main = do
+    putStrLn "What's your name: "
+    name <- getLine
+    putStrLn ("Hello " ++ name)
