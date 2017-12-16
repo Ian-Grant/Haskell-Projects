@@ -17,6 +17,20 @@ batAvgRating hits atBats
     | avg <= 0.34 = "A THIRD decent"
     | otherwise = "SUP BARRY?"
     where avg = hits / atBats
+times4 :: Int -> Int
+times4 x = x*4
+
+multBy4 :: [Int] -> [Int]
+
+multBy4 [] = []
+multBy4 (x:xs) = times4 x : multBy4 xs
+
+areStringsEq :: [Char] -> [Char] -> Bool
+
+areStringsEq [] [] = True
+areStringsEq (x:xs) (y:ys) = x==y && areStringsEq xs ys
+areStringsEq _ _ = False
+
 main = do
     putStrLn "What's your name: "
     name <- getLine
