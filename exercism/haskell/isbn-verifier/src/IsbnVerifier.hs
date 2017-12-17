@@ -1,9 +1,30 @@
 module IsbnVerifier (isbn) where
 import Data.Char
 import Data.List
-
+------------2nd Iteration--------------------------
 isbn :: String -> Bool
 isbn x
+    | ((x !! 2 /= '-')&&(last x == 'X')) = isbnHelper2' x == 0
+    | ((x !! 2 /= '-')&&(last x /= 'X')) = isbnHelper2 x == 0
+    | ((x !! 2 == '-')&&(last x == 'X')) = isbnHelper2D' x == 0
+    | ((x !! 2 == '-')&&(last x /= 'X')) = isbnHelper2D x == 0
+
+isbnHelper2 :: Int -> String -> Int
+isbnHelper2 a [] = 0
+isbnHelper2 0 x = ord(x!!0) + isbnHelper2 1 x
+isbnHelper2 1 x = ord(x!!1) + isbnHelper2 2 x
+isbnHelper2 2 x = ord(x!!2) + isbnHelper2 3 x
+isbnHelper2 3 x = ord(x!!3) + isbnHelper2 4 x
+isbnHelper2 4 x = ord(x!!4) + isbnHelper2 5 x
+isbnHelper2 5 x = ord(x!!5) + isbnHelper2 6 x
+isbnHelper2 6 x = ord(x!!6) + isbnHelper2 7 x
+isbnHelper2 7 x = ord(x!!7) + isbnHelper2 8 x
+isbnHelper2 8 x = ord(x!!8) + isbnHelper2 9 x
+isbnHelper2 9 x = ord(x!!9) + isbnHelper2 10 x
+
+-----------1st Iteration----------------------
+isbnx :: String -> Bool
+isbnx x
     | ((x !! 2 /= '-')&&(last x == 'X')) = isbnHelper' x
     | ((x !! 2 /= '-')&&(last x /= 'X')) = isbnHelper x
     | ((x !! 2 == '-')&&(last x == 'X')) = isbnHelperD' x
