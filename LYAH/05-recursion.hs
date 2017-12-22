@@ -1,16 +1,19 @@
 -- Raise x to the power y, using recursion
 -- For example, power 5 2 = 25
 power :: Int -> Int -> Int
-power x y = undefined
+power x 0 = x
+power x y = x * power x (y-1)
 
 -- create a list of length n of the fibbonaci sequence in reverse order
 -- examples: fib 0 = [0]
 -- 	     fib 1 = [1, 0]
---	     fib 10 = [55,34,21,13,8,5,3,2,1,1,0]	
+--	     fib 10 = [55,34,21,13,8,5,3,2,1,1,0]
 -- try to use a where clause
 fib :: (Num a, Eq a) => a -> [a]
-fib x = undefined
-
+fib 0 = [0]
+fib 1 = [1, 0]
+fib x = (a + b) : whole
+    where whole@(a:b:rest) = fib (x - 1)
 -- This is not recursive, but have a go anyway.
 -- Create a function which takes two parameters, a number and a step
 -- The result is the sign of the original number reversed, and the step added to the absolute value
@@ -18,7 +21,9 @@ fib x = undefined
 --			    stepReverseSign -3 1 = 4
 --			    stepReverseSign 1 2 = -3
 stepReverseSign :: (Fractional a, Ord a) => a -> a -> a
-stepReverseSign a = undefined
+stepReverseSign a
+    | a < 0 = (+) (abs a)
+    | otherwise = (-) (-a)
 
 {- Lets calculate pi.
  - The Leibniz formula for pi (http://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80)
@@ -36,7 +41,7 @@ stepReverseSign a = undefined
  - snd is the number of recursive steps taken to calculate it, after all this chapter is about recursion!
  - Example: piCalc 0.001 = (3.1420924036835256,2000)
 
- - The piCalc' function is defined as 
+ - The piCalc' function is defined as
  - piCalc' :: (Ord a, Fractional a, Integral b) => a -> a -> a -> b -> (a, b)
  - Lots of parameters!
  - The first parameter is the current denominator from the Leibniz formula
@@ -47,13 +52,15 @@ stepReverseSign a = undefined
  -
  - Feel free to change the parameter order, what parameters you need etc in order to get this to work for you,
  - But, of course the output of piCalc should remain as (pi, count)
- - 
+ -
  - You may find the stepReverseSign function handy
  -}
 
 piCalc :: (Fractional a, Integral b, Ord a) => a -> (a, b)
-piCalc a = undefined
+piCalc a = piCalc' 1 0 a 0
 
 piCalc' :: (Ord a, Fractional a, Integral b) => a -> a -> a -> b -> (a, b)
-piCalc' w x y z = undefined
+piCalc' w x y z
+    | (4 / w) < y = (x,z)
+    | otherwise = piCalc' (w+2) (stepReverseSign (4 / w) x) y (z+1)
 
