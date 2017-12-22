@@ -1,3 +1,12 @@
+# Personal Additions
+Websites to Read for this
+
+http://www.geeksforgeeks.org/rail-fence-cipher-encryption-decryption/
+
+http://practicalcryptography.com/ciphers/rail-fence-cipher/
+
+
+
 # Rail Fence Cipher
 
 Implement encoding and decoding for the rail fence cipher.
