@@ -3,15 +3,13 @@ import Data.Char
 import Data.List
 ------------3rd Iteration--------------------------
 isbn :: String -> Bool
-isbn x = map read . filter (/= 'x') x
-        noD = filter (/= '-') x
-        num = map getNum $ noD
-        math = num zipWith (*) [10,9..1]
-        ret = math `mod` 11
+isbn x = (isbnM(isbnF(x)) + getNum(last x)) `mod` 11 == 0 && getNum(last x) > -1 && length(isbnF(x)) == 9 && length (filter (/='-') x) == 10
 
-isbn s = length (filter (/= '-') s) == 10 && length nums == 9 && verify > -1 && 0 == (verify + sum (zipWith (*) [10,9..] nums)) `mod` 11
-  where nums = map digitToInt $ filter isDigit $ init s
-        verify = check $ last s
+isbnF :: String -> [Int]
+isbnF x = map digitToInt $ filter isDigit $ init x
+
+isbnM :: [Int] -> Int
+isbnM num = sum (zipWith (*) [10,9..1] num)
 
 getNum :: Char -> Int
 getNum 'x' = 10
