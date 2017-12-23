@@ -18,8 +18,8 @@ remove delKey (Node dataI t1 t2)
         | delKey < dataI = Node dataI (remove delKey t1) t2
 ------------Remove Helper--------------------
 removeHelper :: (Ord a) => Tree a -> Tree a
-removeHelper (Node a EmptyTree t2) = t2
-removeHelper (Node a t1 EmptyTree) = t1
+removeHelper (Node a EmptyTree t2) = t2 -- No left child
+removeHelper (Node a t1 EmptyTree) = t1 -- No right child
 removeHelper (Node a t1 t2) = (Node a2 t1 t2)
     where a2 = rightMost t1 --gets predessor
 ------------Left Most-----------------------

@@ -1,3 +1,5 @@
 import Data.List
-import Data.Set
-set :: List -> List
+mySet :: (Eq a) => [a] -> [a]
+mySet []     = []
+mySet (x:xs) = x : (mySet $ dropWhile (==x) xs)
+
