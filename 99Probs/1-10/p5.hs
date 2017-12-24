@@ -1,4 +1,6 @@
+--type def
 myReverse :: [Char] -> [Char]
+--empty check
 myReverse [] = error "EMPTY LIST"
 --Calls helper function with list and empty list
 myReverse x = myReverse' x []
