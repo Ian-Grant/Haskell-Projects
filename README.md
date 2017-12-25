@@ -1,4 +1,8 @@
 # Haskell-Projects
+
+Amazing book
+http://haskellbook.com/
+
 A bunch of random projects made while learning haskell
 
 https://stackoverflow.com/questions/1012573/getting-started-with-haskell
