@@ -14,7 +14,7 @@ import Data.Ord
 --then cat all the lists together for the output
 --it'll need to keep track of it's location in the message to know
 --wether or not to go up or down the fence
------------------1st Iteration--------------------------
+----------------2nd Iteration--------------------------
 
 cleanify :: String -> String
 cleanify = map toUpper . filter isLetter
@@ -22,10 +22,28 @@ cleanify = map toUpper . filter isLetter
 --makes rail fence pattern
 fence r = cycle ([0..r-2] ++ [r-1,r-2..1])
 
-encode :: Int -> String -> String
-encode rails mess = map fst $ sortBy (comparing snd) $ zip (cleanify mess) (fence rails)
+helper x = map fst $ sortBy (comparing snd) x
 
-decodeMap cryptoLength rails = map fst $ sortBy (comparing snd) $ zip [0..cryptoLength-1] $ fence rails
+encode :: Int -> String -> String
+encode rails mess = helper $ zip (cleanify mess) (fence rails)
+
+decodeHelper cryptoLength rails = helper $ zip [0..cryptoLength-1] $ fence rails
 
 decode :: Int -> String -> String
-decode rails mess = map fst $ sortBy (comparing snd) $ zip mess (decodeMap (length mess) rails)
+decode rails mess = helper $ zip mess (decodeHelper (length mess) rails)
+-----------------1st Iteration--------------------------
+
+cleanifyV1 :: String -> String
+cleanifyV1 = map toUpper . filter isLetter
+
+--makes rail fence pattern
+fenceV1 r = cycle ([0..r-2] ++ [r-1,r-2..1])
+
+
+encodeV1 :: Int -> String -> String
+encodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip (cleanify mess) (fence rails)
+
+decodeMapV1 cryptoLength rails = map fst $ sortBy (comparing snd) $ zip [0..cryptoLength-1] $ fence rails
+
+decodeV1 :: Int -> String -> String
+decodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip mess (decodeMapV1 (length mess) rails)
