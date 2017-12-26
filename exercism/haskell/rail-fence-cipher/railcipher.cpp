@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// function to encrypt a message
 string encryptRailFence(string text, int key)
 {
     // create the matrix to cipher plain text
