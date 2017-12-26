@@ -19,14 +19,14 @@ import Data.Ord
 --
 --makes rail fence pattern
 fence rails = cycle ([0..rails-2] ++ [rails-1,rails-2..1])
-
+--helper function to elimate repeating code
 helper x = map fst $ sortBy (comparing snd) x
-
+--encodes the given string with the given # of rails
 encode :: Int -> String -> String
 encode rails mess = helper $ zip (map toUpper $ filter isLetter mess) (fence rails)
-
+--helps decode the message
 decodeHelper cryptoLength rails = helper $ zip [0..cryptoLength-1] $ fence rails
-
+--decodes the given crypto text with the given # of rails
 decode :: Int -> String -> String
 decode rails mess = helper $ zip mess (decodeHelper (length mess) rails)
 --
