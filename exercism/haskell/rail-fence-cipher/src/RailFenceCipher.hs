@@ -29,21 +29,4 @@ decodeHelper cryptoLength rails = helper $ zip [0..cryptoLength-1] $ fence rails
 --decodes the given crypto text with the given # of rails
 decode :: Int -> String -> String
 decode rails mess = helper $ zip mess (decodeHelper (length mess) rails)
---
------------------1st Iteration--------------------------
---
 
-cleanifyV1 :: String -> String
-cleanifyV1 = map toUpper . filter isLetter
-
---makes rail fence pattern
-fenceV1 r = cycle ([0..r-2] ++ [r-1,r-2..1])
-
-
-encodeV1 :: Int -> String -> String
-encodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip (cleanifyV1 mess) (fenceV1 rails)
-
-decodeMapV1 cryptoLength rails = map fst $ sortBy (comparing snd) $ zip [0..cryptoLength-1] $ fence rails
-
-decodeV1 :: Int -> String -> String
-decodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip mess (decodeMapV1 (length mess) rails)
