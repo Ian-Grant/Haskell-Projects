@@ -1,0 +1,34 @@
+-- This file has been generated from package.yaml by hpack version 0.21.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 59e5dbd445d851e3bc2eaa6a3dca135bb993b23fcc8b756e119597545b3284ea
+
+name:           sum-of-multiples
+version:        1.1.0.4
+build-type:     Simple
+cabal-version:  >= 1.10
+
+library
+  exposed-modules:
+      SumOfMultiples
+  other-modules:
+      Paths_sum_of_multiples
+  hs-source-dirs:
+      src
+  build-depends:
+      base
+  default-language: Haskell2010
+
+test-suite test
+  type: exitcode-stdio-1.0
+  main-is: Tests.hs
+  other-modules:
+      Paths_sum_of_multiples
+  hs-source-dirs:
+      test
+  build-depends:
+      base
+    , hspec
+    , sum-of-multiples
+  default-language: Haskell2010
