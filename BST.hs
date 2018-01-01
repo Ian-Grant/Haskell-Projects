@@ -1,7 +1,7 @@
 import qualified Data.List
 ------------Constructor----------------------
 data Tree a = EmptyTree | Node a (Tree a) (Tree a)
-        deriving (Show, Eq)
+        deriving (Show, Ord)
 ------------Insert---------------------------
 insert :: (Ord a) => a -> Tree a -> Tree a
 insert x EmptyTree = Node x EmptyTree EmptyTree
