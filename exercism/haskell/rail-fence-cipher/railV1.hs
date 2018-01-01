@@ -19,15 +19,12 @@ import Data.Ord
 -----------------1st Iteration--------------------------
 --
 
-cleanifyV1 :: String -> String
-cleanifyV1 = map toUpper . filter isLetter
-
 --makes rail fence pattern
 fenceV1 r = cycle ([0..r-2] ++ [r-1,r-2..1])
 
-
 encodeV1 :: Int -> String -> String
-encodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip (cleanifyV1 mess) (fenceV1 rails)
+encodeV1 rails mess = map fst $ sortBy (comparing snd) $ zip (map toUpper . filter isLetter
+ mess) (fenceV1 rails)
 
 decodeMapV1 cryptoLength rails = map fst $ sortBy (comparing snd) $ zip [0..cryptoLength-1] $ fence rails
 
