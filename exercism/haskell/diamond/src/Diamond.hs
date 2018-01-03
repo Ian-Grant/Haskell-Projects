@@ -1,4 +1,9 @@
 module Diamond (diamond) where
+import Data.Char
+
+pad :: Int -> String
+pad x = replicate x ' '
 
 diamond :: Char -> [String]
-diamond = error "You need to implement this function"
+diamond x = undefined
+
