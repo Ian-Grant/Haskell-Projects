@@ -11,9 +11,9 @@ isPrime n | n < 4 = n /= 1
 isPrime n = all ((/=0) . mod n) $ takeWhile (<= m) l
         where
             --makes a inifinite list to use above
-            -- makes inifinite list [2,3 then offset of -1 & 1 of 6,12,18,24...
-            -- x is infinite list increasing by 6 each element
+            -- makes inifinite list [2,3 then offset of -1 & 1 of infitie list
+            -- increasing by 6
             -- ex: [2,3,5,7,11,13]
-            l = (2:3:[x + i | x <- [6,12..], i <- [-1,1]])
+            l = 2:3:[x + i | x <- [6,12..], i <- [-1,1]]
             -- square roots the input and the rounds that number down
             m = floor . sqrt $ fromIntegral n
