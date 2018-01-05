@@ -1,20 +1,19 @@
 module Cipher where
 import Data.Char (ord,chr)
 
-encode :: Int -> String -> String
-encode _ [] = []
-encode n (x:xs)
-    | y == 'Z' = 'A' : encode n xs
-    | otherwise = l : encode n xs
-    where
-        y = toUpper x
-        l = chr $ ord y + n
+shiftStr :: Int -> String -> String
+shiftStr num str
+    | num > 0  = shiftStr (num - 1) (map shiftF str)
+    | num < 0  = shiftStr (num + 1) (map shiftB str)
+    | num == 0 = str
+    | otherwise = "How'd you get here?"
 
-decode :: Int -> String -> String
-decode _ [] = []
-decode n (x:xs)
-    | x == 'A' = 'Z' : decode n xs
-    | otherwise = l : decode n xs
-    where
-        l = chr $ ord x - n
+shiftF :: Char -> Char
+shiftF 'z' = 'a'
+shiftF 'Z' = 'A'
+shiftF c   = succ c
 
+shiftB :: Char -> Char
+shiftB 'a' = 'z'
+shiftB 'A' = 'Z'
+shiftB c   = pred c
