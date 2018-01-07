@@ -13,16 +13,19 @@ Great Guide and Resource- https://stackoverflow.com/questions/1012573/getting-st
 Watch this video and work along side it for a good jumpstart into the language. 
 http://www.newthinktank.com/2015/08/learn-haskell-one-video/
 
-Great Starting Point http://learnyouahaskell.com/chapters
+Great Starting Point
+http://learnyouahaskell.com/chapters
 
-Do these exercises as you read it. https://github.com/noelmarkham/learn-you-a-haskell-exercises
+Do these exercises as you read it.
+https://github.com/noelmarkham/learn-you-a-haskell-exercises
 
-CIS 194  http://www.seas.upenn.edu/%7Ecis194/spring13/lectures.html
+CIS 194
+http://www.seas.upenn.edu/%7Ecis194/spring13/lectures.html
 
-Data61 https://github.com/data61/fp-course
+Data61
+https://github.com/data61/fp-course
 
-Kindof Outdated(A decade now) but still great. 
-
+Kindof Outdated(A decade now) but still good. 
 http://book.realworldhaskell.org/read/
 
 # Exercises to do as you learn
@@ -31,7 +34,7 @@ Good exercises difficult seems random at times. But you can get feedback on your
 
 http://exercism.io/languages/haskell/about
 
-99 Problems and a for loop aint one
+99 Problems in Haskell
 
 http://haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems
 
