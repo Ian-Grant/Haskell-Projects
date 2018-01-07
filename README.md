@@ -8,7 +8,7 @@ Awesome Book - http://haskellbook.com/
 
 Great Guide and Resource- https://stackoverflow.com/questions/1012573/getting-started-with-haskell
 
-# List of Tutorials used
+# List of Resources used
 
 Watch this video and work along side it for a good jumpstart into the language. 
 http://www.newthinktank.com/2015/08/learn-haskell-one-video/
@@ -21,6 +21,10 @@ CIS 194  http://www.seas.upenn.edu/%7Ecis194/spring13/lectures.html
 
 Data61 https://github.com/data61/fp-course
 
+Kindof Outdated(A decade now) but still great. 
+
+http://book.realworldhaskell.org/read/
+
 # Exercises to do as you learn
 
 Good exercises difficult seems random at times. But you can get feedback on your solutions
@@ -31,6 +35,3 @@ http://exercism.io/languages/haskell/about
 
 http://haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems
 
-Kindof Outdated(A decade now) but still great. 
-
-http://book.realworldhaskell.org/read/
