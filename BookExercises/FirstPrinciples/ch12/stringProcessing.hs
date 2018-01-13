@@ -28,4 +28,14 @@ mkWord x = if countVowels x <= (length x `div` 2) then Just (Word' x) else Nothi
 data Nat = Zero | Succ Nat deriving (Eq, Show)
 
 natToInteger :: Nat -> Integer
-natToInteger x = undefined
+natToInteger Zero = 0
+natToInteger x = 1 + natToInteger x
+
+integerToNat :: Integer -> Maybe Nat
+integerToNat 0 = Just Zero
+integerToNat x
+    | x < 0 = Nothing
+    | otherwise = Just $ num x
+  where
+    num 0 = Zero
+    num n = Succ $ num $ n - 1
