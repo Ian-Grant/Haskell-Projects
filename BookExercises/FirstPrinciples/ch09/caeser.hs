@@ -1,5 +1,4 @@
-module Cipher where
-import Data.Char (ord,chr)
+module Caeser where
 
 shiftStr :: Int -> String -> String
 shiftStr num str
