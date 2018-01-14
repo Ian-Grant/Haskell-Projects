@@ -36,6 +36,6 @@ integerToNat 0 = Just Zero
 integerToNat x
     | x < 0 = Nothing
     | otherwise = Just $ num x
-  where
-    num 0 = Zero
-    num n = Succ $ num $ n - 1
+      where
+        num 0 = Zero
+        num n = Succ $ num $ n - 1
