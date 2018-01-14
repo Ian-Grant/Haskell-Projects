@@ -3,8 +3,29 @@ module StringProcessing where
 notThe :: String -> Maybe String
 notThe "The" = Just "A"
 notThe "the" = Just "a"
-notThe x = Just x
+notThe _ = Nothing
 
 --replaceThe :: String -> String
---replaceThe x = concat $ map notThe
---        wordList = words x
+--replaceThe x = concatmap $ map theCheck wordList
+--          wordList = words x
+theCheck :: String -> Maybe String
+theCheck x = if notThe x == Nothing then Just x else notThe x
+
+vowels = "aeiouAEIOU"
+
+countTheBeforeVowel :: String -> Integer
+countTheBeforeVowel = undefined
+
+countVowels :: String -> Int
+countVowels [] = 0
+countVowels (x:xs) = if elem x vowels then 1 + countVowels xs else countVowels xs
+
+newtype Word' = Word' String deriving (Eq, Show)
+
+mkWord :: String -> Maybe Word'
+mkWord x = if countVowels x <= (length x `div` 2) then Just (Word' x) else Nothing
+
+data Nat = Zero | Succ Nat deriving (Eq, Show)
+
+natToInteger :: Nat -> Integer
+natToInteger x = undefined
