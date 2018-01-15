@@ -1,15 +1,18 @@
 module StringProcessing where
 
+import Data.Maybe
+
 notThe :: String -> Maybe String
 notThe "The" = Just "A"
 notThe "the" = Just "a"
 notThe _ = Nothing
 
---replaceThe :: String -> String
---replaceThe x = concatmap $ map theCheck wordList
---          wordList = words x
+replaceThe :: String -> String
+replaceThe x = unwords $ map (fromMaybe "" . theCheck) wordList
+  where
+          wordList = words x
 theCheck :: String -> Maybe String
-theCheck x = if notThe x == Nothing then Just x else notThe x
+theCheck x = if isNothing $ notThe x then Just x else notThe x
 
 vowels = "aeiouAEIOU"
 
@@ -18,7 +21,7 @@ countTheBeforeVowel = undefined
 
 countVowels :: String -> Int
 countVowels [] = 0
-countVowels (x:xs) = if elem x vowels then 1 + countVowels xs else countVowels xs
+countVowels (x:xs) = if x `elem`  vowels then 1 + countVowels xs else countVowels xs
 
 newtype Word' = Word' String deriving (Eq, Show)
 
