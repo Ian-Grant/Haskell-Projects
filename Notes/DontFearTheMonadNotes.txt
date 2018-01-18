@@ -1,0 +1,92 @@
+DontFearTheMonad
+
+Table of Contents
+Functions
+Monoids
+Function
+Monads
+
+Functional Programming
+
+No Shared Mutable State in Functional Programming
+Monads imitate Shared States/Shared Mutable State
+
+Functions
+
+Type syntax - int x;
+Sets syntax - x :: int aka x is member of set int (x E ints) or x has type int
+
+function takes in a int and returns a int
+f :: int -> int
+
+
+funtion f,g,h takes in generic type a and returns a
+x has generic type a
+
+Func table
+x :: a
+f :: a -> a
+g :: a -> a
+h :: a -> a
+
+Monoids
+-- A set of things plus a rule for combining the things and that rule obeys some rules
+-- Associative
+
+Combining f and g
+-- 1,2,3 are the same
+1. f(g a) or g(f a)
+2. (f . g) a  --composing functions together. point-free style
+3. (f.g) = h :a -> a --same as above just assigned to a func name and showing type
+
+Example is a clock
+Set: The numbers on the clock
+Rule: (x+y) % 12
+Rules that the rule obeys: x.(y.z) = (x.y).z --aka must be associative order doesn't matter
+
+x.specialMember = x
+specialMember.x = x
+in clock example special member is 12
+though that doesn't mean x.y == y.x
+
+Functions II The Electric Boogaloo
+--Functions in composition form a monoid
+
+--Showing function composition is associative
+(f.g).h == f.(g.h)
+--f.(g.h) == f(g(h a))
+--(f.g).h == f(g(h a))
+
+id :: a -> a
+id a = a
+
+
+Monads -- Leaving realm of functions that a -> a
+
+--New Func Table
+-- x :: a
+-- f :: a -> Ma
+-- g :: a -> Ma
+-- h :: a -> Ma
+^^Functions take in a and returns M of a
+
+Lambda Notation aka Anonomous Functions
+\a -> ...
+-- Backslash is lambda
+-- a is input
+
+\a -> (f a) >>= \a -> (g a)  --a -> Ma
+\a -> [Ma   >>= a -> Ma]
+-- Type of (f a) & (g a) is Ma
+-- >>= is bind/shove takes result of left and binds/shoves it to right
+-- Data lives in monads functions still composition
+
+unit operator -- in haskell it is return :: a -> Ma
+
+g :: a -> b
+f :: b -> c
+(f.g) a = f(g a) :: a -> c
+  --takes a value a feeds it to g
+  --  the result of g which is b
+  --   is fed to f which take in b
+  --   and returns type c
