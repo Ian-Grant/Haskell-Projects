@@ -18,12 +18,3 @@ executable ciphers
   main-is:             Main.hs
   default-language:    Haskell2010
   build-depends:       base >= 4.7 && < 5
-                     , Caeser
-                     , Vigenere
-
-library
-  hs-source-dirs: src
-  exposed-modules: Caeser
-                 , Vigenere
-  build-depends:  base >= 4.7 && < 5
-  default-language: Haskell2010

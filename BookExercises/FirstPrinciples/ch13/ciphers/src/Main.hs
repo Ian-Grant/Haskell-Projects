@@ -4,7 +4,7 @@ import Caeser
 import Vigenere
 import System.IO
 
-
+{-
 main :: IO ()
 main = do
   hSetBuffering stdout NoBuffering
@@ -14,3 +14,6 @@ main = do
   v <- vigenere message
   putStrLn $ "Caeser Encryption: " ++ c
   putStrLn $ "Vigenere Encryption: " ++ v
+  -}
+main :: IO ()
+main = putStrLn "Hello, World!"
