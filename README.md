@@ -25,6 +25,12 @@ http://www.seas.upenn.edu/%7Ecis194/spring13/lectures.html
 Data61
 https://github.com/data61/fp-course
 
+Parallel and Concurrent Programming in Haskell
+http://chimera.labs.oreilly.com/books/1230000000929/index.html
+
+Haskell and Yesod
+https://www.yesodweb.com/book
+
 Kindof Outdated(A decade now) but still good. 
 http://book.realworldhaskell.org/read/
 
