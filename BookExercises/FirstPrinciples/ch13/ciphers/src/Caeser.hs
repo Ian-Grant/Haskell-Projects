@@ -12,17 +12,19 @@ caeser num str
 shiftF :: Char -> Char
 shiftF 'z' = 'a'
 shiftF 'Z' = 'A'
+shiftF ' ' = ' '
 shiftF c   = succ c
 
 shiftB :: Char -> Char
 shiftB 'a' = 'z'
 shiftB 'A' = 'Z'
+shiftB ' ' = ' '
 shiftB c   = pred c
-
+{-
 main :: IO ()
 main = do
   hSetBuffering stdout NoBuffering
   putStr "Enter Message: "
   mess <- getLine
   putStrLn $ "Encrypted Message: " ++ (caeser 12 mess)
-
+-}
