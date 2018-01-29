@@ -1,4 +1,6 @@
 module Acronym (abbreviate) where
 
+import Data.Char (toUpper)
+
 abbreviate :: String -> String
-abbreviate xs = error "You need to implement this function."
+abbreviate xs = map (toUpper . head) $ words xs
