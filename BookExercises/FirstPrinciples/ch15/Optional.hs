@@ -18,3 +18,6 @@ newtype First' a =
 instance Monoid (First' a ) where
     mempty = undefined
     mappend = undefined
+
+funkyFun :: Int -> Int -> Int -> Int
+funkyFun x y z = x*y*z
