@@ -45,4 +45,18 @@ Algebra - Some operation and the set they operate over
 --      Newtype guarantees no additional runtime overhead in wrapping the
 --          original type. No additional boxing is needed for products and sums
 --
+-- Laws
+-- Proofs are programs and programs are proofs.
+left Identity
+mappend mempty x = x
+right Identity
+mappend x mempty = x
+Associativity
+mappend x (mappend y z) = mappend (mappend x y) z
+
+mconcat = foldr mappend mempty
+--Using Lists
+mempty is []
+mappend is (++)
+
 --
