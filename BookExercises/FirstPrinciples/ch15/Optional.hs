@@ -1,23 +1,12 @@
 module Optional where
 
-import Data.Monoid
-
-data Optional a = Nada | Only a deriving (Eq,Show)
+data Optional a =
+    Nada
+  | Only a
+  deriving (Eq, Show)
 
 instance Monoid a => Monoid (Optional a) where
-  mempty = Nada
-  mappend (Only x) (Only y) = Only $ mappend x y
-  mappend (Only x) _ = Only x
-  mappend _ (Only y) = Only y
-  mappend _ _ = Nada
-
-newtype First' a =
-    First' {getFirst' :: Optional a}
-    deriving (Eq, Show)
-
-instance Monoid (First' a ) where
-    mempty = undefined
-    mappend = undefined
-
-funkyFun :: Int -> Int -> Int -> Int
-funkyFun x y z = x*y*z
+  mempty =  Nada
+  x        `mappend` Nada     = x
+  Nada     `mappend` y        = y
+  (Only x) `mappend` (Only y) = Only (x `mappend` y)
