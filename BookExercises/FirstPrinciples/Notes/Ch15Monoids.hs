@@ -64,3 +64,27 @@ mappend is (++)
 -- Newtype is used to tell monoids apart that have diffretnt implementation
 --      For example Sum and Product for ints
 --      Or All and Any for Bool
+
+--Identity
+--An Identity is a value with a special relationship to operation
+--It always returns the other value passed into the operation
+--  Ex:     Operation   Identity
+--          Addition    0
+--          Multiplication  1
+--          Division    1
+--
+--The Problem of Oprhan Instances
+--  An Orphan Instance is when an instance is defined for a datatype and
+--      a typeclass, but not in the same module as either declarartion.
+--  Avoid writing orphan instances at all costs!
+--  If you don't own instance newtype it! so this does not happen!
+--
+-- 3 Ways to fix orphan instances
+--  1. Type is defined but no Typeclass then put instances in same module as type
+--      so the type can't be impprted without the instances.
+--  2. Typeclass is defined but no Type then put instances in same module as typeclass
+--      so the TypeClass can't be impprted without the instances.
+--  3. Neither are defined then define a newtype wrapping the original type
+--      so it now belongs to you and can now define typeclass instances.
+--
+--

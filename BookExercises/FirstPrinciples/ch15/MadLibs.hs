@@ -25,7 +25,10 @@ madlibbinBetter' :: Exclamation ->
               Noun ->
               Adjective ->
               String
-madlibbinBetter' e adv noun adj = mconcat [e , "! he said " ,
-  adv , " as he jumped into his car " ,
-  noun , " and drove off with his " ,
-  adj , " wife."]
+madlibbinBetter' e adv noun adj = mconcat [e, "! he said "
+                                            , adv
+                                            , " as he jumped into his car "
+                                            , noun
+                                            , " and drove off with his "
+                                            , adj
+                                            , " wife."]
