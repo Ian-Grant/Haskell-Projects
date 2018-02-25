@@ -87,4 +87,11 @@ mappend is (++)
 --  3. Neither are defined then define a newtype wrapping the original type
 --      so it now belongs to you and can now define typeclass instances.
 --
---
+--  Definitions
+--  1. Monoid - A set that is closed under an associative binary operation and has an identiy element
+--  2. Semigroup is a set that is closed under an associative binary operation and nothing else
+--  3. Laws are rules about how an algerabra should be have. These are needed
+--      to make abstraction over the comonlalities of different instantiations of the same
+--      sort of algerbra possible and practical
+--  4. Algebra - notation of operations over a type and its laws such as
+--          semigroups, monoids, groups, semirings, and rigns.

@@ -4,7 +4,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Gen
 import Control.Monad
 import Data.Semigroup (Semigroup, (<>), Sum(Sum, getSum))
-import MonoidProps
+import MonoidProperties
 
 semigroupAssoc :: (Eq m, Semigroup m) => m -> m -> m -> Bool
 semigroupAssoc a b c = (a <> (b <> c))  == ((a <> b) <> c)
