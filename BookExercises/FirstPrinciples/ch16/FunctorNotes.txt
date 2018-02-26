@@ -1,0 +1,31 @@
+Functor
+
+Chapter Summary
+  - Return of the Higher-Kinded Types
+  - Fmaps galore, and on diffrent data types than just lists.
+  - Typeclasses and Constructor Classes
+
+Last Chapter on monoid which was about algebra and turning it into a typeclass.
+This Chapter and the following Applicative and Monad are similar but each
+    algebra is more powerful than the last. (This isn't even my final form.)
+
+General Concept is same, abstract a common pattern make it follow certain laws.
+    Give cool name and live in wonder with it.
+
+This chapter is about Functor which is all about a pattern of mapping over a structure
+    aka fmap back in List Chapter
+
+Functors are combinators, they take a sentence or phrase as input and
+                    outputs a sentence or phrase with a logic operation applied onto it
+
+    Ex: Negation is a functor in this sense because when negation is applied to
+        a sentance, A, it produces the negated version, ~A, as output.
+        It lifts the concept of negation over the entire sentence or phrase
+        structure without changing the internal structure.
+
+===What is a Functor?===
+
+A functor is a way to apply a function over a structure that we don't want to alter.
+    A function is applied to value inside structure and leave structure alone.
+
+
