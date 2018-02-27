@@ -27,5 +27,7 @@ Functors are combinators, they take a sentence or phrase as input and
 
 A functor is a way to apply a function over a structure that we don't want to alter.
     A function is applied to value inside structure and leave structure alone.
+    No elements are removed or added. Only transformed.
 
+===FMAP===
 
