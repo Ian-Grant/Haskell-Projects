@@ -31,3 +31,27 @@ A functor is a way to apply a function over a structure that we don't want to al
 
 ===FMAP===
 
+--Map&Fmap--
+map (\x -> x > 3) [1..6]
+[False,False,False,True,True,True]
+
+fmap (\x -> x > 3) [1..6]
+[False,False,False,True,True,True]
+
+map and fmap work the same as eachother when applied on a List.
+
+Tho fmap can be applied to alot more data types while map only works on lists.
+
+map exists solely for new people to haskell so they only see errors about lists
+    when using map versus seeing errors about Functors when using fmap.
+
+the function f in the Functor definition must be kind * -> *
+    For a Few Reasons
+        1. Each argument and result in the type signature for a function
+            must be a fully applied type. Each arg must be kind *.
+        2. The type f was applied to a single argument in two diffrent places
+            f a and f b. Since f a and f b must have kind *. f by itself is * -> *
+Every arg to (->) must be of kind *
+    because the kind of (->) is * -> *
+Each arg and result of every function must be a type constant not a type constructor
+    aka kind *
