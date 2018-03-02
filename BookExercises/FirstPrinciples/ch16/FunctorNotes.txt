@@ -55,3 +55,32 @@ Every arg to (->) must be of kind *
     because the kind of (->) is * -> *
 Each arg and result of every function must be a type constant not a type constructor
     aka kind *
+
+===Functor is function application===
+Inflix operator for fmap is <$>.
+
+Functor is a typeclass for function application over or through some data structure f.
+    and we want to leave structure f alone and untouched but modify the data
+    inside but have the structure be unchanged.
+
+===FUNCTOR LAWS===
+
+Idenitiy
+fmap id == id
+fmap id "Hi Julie"
+"Hi Julie"
+
+===Composition===
+
+fmap (f . g) == fmap f . fmap g
+
+composing the function inside fmap will be the same
+as running both functions in fmap seperately then composing them.
+
+===Structure Preservation===
+
+Both of the above laws touch upon rule of structural preservation.
+
+
+===The Good the Bad the Ugly===
+

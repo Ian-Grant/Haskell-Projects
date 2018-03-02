@@ -7,3 +7,7 @@ module ExBeKind where
 -- #2 What are the kinds of b and T
 -- a -> b a -> T (b a)
 -- * -> (* -> *) -> (* -> * -> * -> *)
+-- b: * -> *
+-- T: * -> * -> *
+-- #3 What's the kind of c?
+-- * -> * -> a

@@ -15,12 +15,11 @@ class Biffy where
     slayer :: e a b
             -- takes in datatype e wrapped around a&b
             --  e has type * -> * -> * cuz it takes in 2 inputs and outs a *
-            -> (a -> c)
+            -> (a -> c) --(* -> *)
             -- function that takes in a and returns c
             -- aka its kind is also * -> *
-            -> (b -> d)
+            -> (b -> d) --(* -> *)
             -- function that takes in b and returns d
             -- aka its kind is also * -> *
-            -> e c d
+            -> e c d    -- * -> * -> * -> *
             -- e now contains c and d instead of a and b
-            --
