@@ -84,3 +84,29 @@ Both of the above laws touch upon rule of structural preservation.
 
 ===The Good the Bad the Ugly===
 
+Law abiding functor instances keep their idenity law proper
+whereas the law breaking functor instances break the idenity law.
+  Ex:
+    data WhoCares a = ItDoesnt | Matter a | WhatThisIsCalled deriving (Eq,Show)
+    
+    instance Functor WhoCares where
+      fmap _ ItDoesnt = ItDoesnt
+      fmap _ WhatThisIsCalled = WhatThisIsCalled
+      fmap f (Matter a) = Matter (f a)
+    -- The above functor instance is law abiding because if the id (idenity) function is applied to it
+       it'll return the same value as passed into the functor.
+       
+    --However the below instance is law breaking because it doesn't regaurd the idenity function
+    instance Functor WhoCares where
+      fmap _ ItDoesnt = ItDoesnt
+      fmap f WhatThisIsCalled = ItDoesnt
+      fmap f (Matter a) = Matter (f a)
+    -- It is law breaking because f applied on WhatThisCalled results in ItDoesnt which breakes the idenity law
+    -- cuz if id was applied by the functor to WhatThisIsCalled it would return ItDoesnt which does not equal
+    -- id WhatThisIsCalled which just returns WhatThisIsCalled
+    By breaking the idenity law it is no longer a functor if that is the intended use though don't make it a functor
+    just write it as a normal function. Because the point and reason Functors are special 
+    is because they follow the idenity law when mapping over a datastructure they modify the data and not the structure.
+    
+    Later in this chapter the opposite will be taught transforming the structure but the data is not modified.
+    
