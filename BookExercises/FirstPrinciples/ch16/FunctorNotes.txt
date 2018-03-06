@@ -128,3 +128,6 @@ If the structure has multiple datatypes in it keep
     lifting till u have only what will be modified.
 
 ===Commonly used Functors===
+    see commonFunctors.hs
+===Functors are stacked and that's a fact===
+
