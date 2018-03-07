@@ -131,3 +131,6 @@ If the structure has multiple datatypes in it keep
     see commonFunctors.hs
 ===Functors are stacked and that's a fact===
 
+We can combine datatypes by nesting them. Then modify data by lifting them.
+
+
