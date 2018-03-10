@@ -133,4 +133,9 @@ If the structure has multiple datatypes in it keep
 
 We can combine datatypes by nesting them. Then modify data by lifting them.
 
+===Transforming the Unapplied Type Argument===
+
+Fmaping only applies to 2nd half of a tuple, either, and
+    other data types because it cannot modifiy the structure.
+    It has to only modify the data
 
