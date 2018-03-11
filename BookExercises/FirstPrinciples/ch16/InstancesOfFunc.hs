@@ -58,7 +58,7 @@ type TwoId = Two Int Int -> Bool
 type TwoCompose = Fun Int String -> Fun String Double -> Two Int Int -> Bool
 
 --
---- 3
+--- 4
 --
 
 data Three a b c = Three a b c deriving (Eq, Show)
@@ -75,7 +75,7 @@ type ThreeId = Three Int Int Int -> Bool
 type ThreeCompose = Fun Int String -> Fun String Double -> Three Int Int Int -> Bool
 
 --
---- 4
+--- 5
 --
 
 data Three' a b = Three' a b b deriving (Eq, Show)
@@ -93,12 +93,60 @@ instance (Arbitrary a, Arbitrary b) => Arbitrary (Three' a b) where
 type Three'Id = Three' Int Int -> Bool
 type Three'Compose = Fun Int String -> Fun String Double -> Three' Int Int -> Bool
 
+--
+--- 6
+--
+
+data Four a b c d = Four a b c d deriving (Eq, Show)
+
+instance Functor (Four a b c) where
+    fmap f (Four a b c d) = Four a b c (f d)
+instance (Arbitrary a, Arbitrary b, Arbitrary c, Arbitrary d) => Arbitrary (Four a b c d) where
+    arbitrary = do
+    x <- arbitrary
+    y <- arbitrary
+    z <- arbitrary
+    a <- arbitrary
+    return $ Four x y z a
+
+type FourId = Four Int Int Int Int -> Bool
+type FourCompose = Fun Int String -> Fun String Double -> Four Int Int Int Int -> Bool
+
+--
+--- 7
+--
+
+data Four' a b = Four' a a a b deriving (Eq, Show)
+
+instance Functor (Four' a) where
+    fmap f (Four' a b c d) = Four' a b c (f d)
+instance (Arbitrary a, Arbitrary b) => Arbitrary (Four' a b) where
+    arbitrary = do
+    x <- arbitrary
+    y <- arbitrary
+    z <- arbitrary
+    a <- arbitrary
+    return $ Four' x y z a
+
+type Four'Id = Four' Int Int -> Bool
+type Four'Compose = Fun Int String -> Fun String Double -> Four' Int Int -> Bool
+
+--
+--- 8
+--
+
+--Can't implement cuz no data to modify only a structure.
+-- It's kind is *
+-- Functors need the kind to be * -> *
+
 main = do
   check "Identity" (functorIdentity :: IdentityId) (functorCompose :: IdentityCompose)
   check "Pair" (functorIdentity :: PairId) (functorCompose :: PairCompose)
   check "Two" (functorIdentity :: TwoId) (functorCompose :: TwoCompose)
   check "Three" (functorIdentity :: ThreeId) (functorCompose :: ThreeCompose)
   check "Three'" (functorIdentity :: Three'Id) (functorCompose :: Three'Compose)
+  check "Four" (functorIdentity :: FourId) (functorCompose :: FourCompose)
+  check "Four'" (functorIdentity :: Four'Id) (functorCompose :: Four'Compose)
 
 check functor id compose = do
   printChecking functor
@@ -108,4 +156,4 @@ check functor id compose = do
 printChecking :: String -> IO ()
 printChecking functor = do
   putStrLn ""
-  putStrLn $ concat ["Checking ", functor, " Functor"]
+  putStrLn $ "Checking " ++ functor ++ " Functor"
