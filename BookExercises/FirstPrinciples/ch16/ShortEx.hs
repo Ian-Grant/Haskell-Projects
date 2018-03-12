@@ -1,0 +1,5 @@
+module ShortEx where
+
+data Sum a b = First a | Second b deriving (Eq, Show)
+
+instance Functor (Sum a) where
