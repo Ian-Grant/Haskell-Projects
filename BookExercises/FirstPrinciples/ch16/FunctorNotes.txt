@@ -146,12 +146,8 @@ Fmaping only applies to 2nd half of a tuple, either, and
 ===Ignoring Possiblities===
 
 ---Maybe---
+    see IgnoreMaybe.hs
+---
 
-incIfJust :: Num a => Maybe a -> Maybe a
-incIfJust (Just n) = Just $ n+1
-incIfJust _ = Nothing
 
-showIfJust :: Show a => Maybe a -> Maybe String
-showIfJust (Just s) = Just $ show s
-showIfJust _ = Nothing
 

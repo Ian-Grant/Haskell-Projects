@@ -6,8 +6,6 @@ data Maybe a = Nothing | Just a
 
 replaceWithP = const 'p'
 
---data Maybe a = Nothing | Just a
-
 tossEmOne = fmap (+1) negate
 tossEmOne' = (+1) . negate
 
