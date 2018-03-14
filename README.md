@@ -48,6 +48,8 @@ http://haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems
 
 # Cool to-do Projects
 
+https://www.reddit.com/r/haskell/comments/6uoys8/where_are_the_simple_lets_build_with_haskell_posts/
+
 CMD tools
 http://bollu.github.io/teleport/
 
