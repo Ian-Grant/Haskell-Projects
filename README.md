@@ -40,11 +40,18 @@ Good exercises difficult seems random at times. But you can get feedback on your
 
 http://exercism.io/languages/haskell/about
 
-Compilers :D
 
-http://dev.stephendiehl.com/fun/
 
 99 Problems in Haskell
 
 http://haskell.org/haskellwiki/H-99:_Ninety-Nine_Haskell_Problems
+
+# Cool to-do Projects
+
+CMD tools
+http://bollu.github.io/teleport/
+
+Compilers :D
+
+http://dev.stephendiehl.com/fun/
 
