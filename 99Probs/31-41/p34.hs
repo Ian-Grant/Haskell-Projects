@@ -1,4 +1,4 @@
-module Totient where
+module P34 where
 
 gcd' :: Int -> Int -> Int
 gcd' a 0 = a
@@ -13,4 +13,8 @@ coprime' a b = gcd' a b == 1
 
 totient :: Int -> Int
 totient 1 = 1
-totient x = undefined
+totient x = count
+            where
+                count = sum $ map check l
+                check z = if coprime' x z then 1 else 0
+                l = [0,1..(x-1)]
