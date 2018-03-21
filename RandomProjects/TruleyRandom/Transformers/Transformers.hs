@@ -52,3 +52,5 @@ eval1 env (App e1 e2) = do val1 <- eval1 env e1
                            case val1 of
                                 FunVal env' n body ->
                                     eval1 (Map.insert n val2 env') body
+
+

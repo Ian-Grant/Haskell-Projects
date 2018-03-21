@@ -154,3 +154,13 @@ Fmaping only applies to 2nd half of a tuple, either, and
         ---IO Functor---
             see IOFunctor.hs
 
+===Something Diffrent===
+Transforming the structure and leave the type args alone
+    ----Natural Transformations
+
+    Doing the opposite of what a Functor does.
+    Transforming the structure and perserving the values of the data.
+    ----see SomethingDiff.hs
+
+===Functors are unique to a datatype===
+    ---see FlipFunctor.hs
