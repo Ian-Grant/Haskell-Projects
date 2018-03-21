@@ -1,7 +1,12 @@
+{-# LANGUAGE InstanceSigs #-}
+{-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE PartialTypeSignatures #-}
+
 module Transformers where
 
 import Control.Monad.Identity
-import Control.Monad.Error
+import Control.Monad.Except
+import Control.Monad.Trans.Except
 import Control.Monad.Reader
 import Control.Monad.State
 import Control.Monad.Writer
@@ -22,7 +27,10 @@ data Value = IntVal Integer
 
 type Env = Map.Map Name Value
 
-exampleExp = Lit 12 `Plus` (App (Abs "x" (Var "x"))(Lit 4 `Plus` Lit 2))
+exampleValidExp :: Exp
+exampleValidExp = Lit 12 `Plus` (App (Abs "x" (Var "x"))(Lit 4 `Plus` Lit 2))
+exampleInvalidExp :: Exp
+exampleInvalidExp = Lit 1 `Plus` (abs "x" (Var "x"))
 
 eval0 :: Env -> Exp -> Value
 eval0 env (Lit i) = IntVal i
@@ -42,7 +50,7 @@ runEval1 ev = runIdentity ev
 
 eval1 :: Env -> Exp -> Eval1 Value
 eval1 env (Lit i) = return $ IntVal i
-eval1 env (Var n) = Map.lookup n env
+eval1 env (Var n) = return $ fromJust $ Map.lookup n env
 eval1 env (Plus e1 e2) = do IntVal i1 <- eval1 env e1
                             IntVal i2 <- eval1 env e2
                             return $ IntVal (i1+i2)
