@@ -1,0 +1,10 @@
+===Applicative Notes===
+
+===Applicative===
+Monoid gives a way of mashing two values of the same type together.
+Functor gives a way for a function application over some structure we don't want
+    to mess with or think about.
+
+Applicatives are monoidal functors.
+
+===Defining===
