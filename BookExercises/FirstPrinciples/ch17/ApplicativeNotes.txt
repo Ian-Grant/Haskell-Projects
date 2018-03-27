@@ -5,6 +5,51 @@ Monoid gives a way of mashing two values of the same type together.
 Functor gives a way for a function application over some structure we don't want
     to mess with or think about.
 
-Applicatives are monoidal functors.
+Applicatives are monoidal functors. *explosions in mind*
+The Applicative typeclass allows for function application lifted (applied/mapped)
+over a structure (like a Functor does).
+
+But with Applicative, the function we're applying is also nested inside a structure.
+Because the function and the value it's being applied to both have structure we
+need to mash the structures together. Aka, Applicatives involve monoids and functors.
+
+---Chap Over---
+■ Define and explore the Applicative typeclass and its core operations.
+■ Demonstrate why applicatives are monoidal functors
+■ Laws and Instances
+■ More Lifting Bro
+■ Validations
 
 ===Defining===
+Typeclass Declaration: Every type that is Applicative must also have a Functor instance.
+----------------------
+class Functor f => Applicative f where
+    pure :: a -> f a
+    (<*>) :: f (a -> b) -> f a -> f b
+
+The pure function is simple and boring: it lifts something into a
+functorial/applicative structure. The bare minimum bit of structure or strucural identity.
+
+<*> is the more intresing operation its a infix function called `apply`/`ap`/`tie fighter`
+
+Comparing types of <*> (tie fighter) and fmap:
+--------------------------------
+--fmap
+(<$>) :: Functor f => (a -> b) -> f a -> f b
+--ap (tie fighter)
+(<*>) :: Applicative f => f (a -> b) -> f a -> f b
+
+The diffrence is the f representing functorial structure that is on the function
+in the definition of ap (tie fighter).
+
+Along with these core functions Control.Applicative library provides some
+convenient functions: liftA, liftA2, and liftA3:
+
+liftA :: Applicative f => (a -> b) -> f a -> f b
+liftA2 :: Applicative f => (a -> b -> c) -> f a -> f b -> f c
+liftA3 :: Applicative f => (a -> b -> c -> d) -> f a -> f b -> f c -> f d
+
+===Functors vs Applicative===
+
+fmap :: (a -> b) -> f a -> f b
+(<*>) :: f (a -> b) -> f a -> f b
