@@ -53,3 +53,25 @@ liftA3 :: Applicative f => (a -> b -> c -> d) -> f a -> f b -> f c -> f d
 
 fmap :: (a -> b) -> f a -> f b
 (<*>) :: f (a -> b) -> f a -> f b
+
+fmap f x = pure f <*> x
+
+===Applicative functors are monoidal functors===
+($) :: (a -> b) -> a -> b
+(<$>) :: (a -> b) -> f a -> f b
+(<*>) :: f (a -> b) -> f a -> f b
+
+<$> The alias for fmap the function (a -> b) is being lifted over the f around a.
+<*> The alias for ap the function being lifted over the structure of a is also
+    embedded in it's own structure that needs to be lifted to be applied.
+
+This is where the monoidal part of aplicatives come into play.
+It lifts the structure and applies the function inside on to the values
+inside of the same structure on the otherside. The it combinds the two
+structures together
+
+With Applicative we have ae Monoid for our structure and Functor for the values.
+In a sense Applicative is a monoid bolted onto a Functor to deal with functions
+    embedded in additional structure.
+
+
