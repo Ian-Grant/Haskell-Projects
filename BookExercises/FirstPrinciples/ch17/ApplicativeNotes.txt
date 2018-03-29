@@ -73,4 +73,16 @@ structures together
 With Applicative we have ae Monoid for our structure and Functor for the values.
 In a sense Applicative is a monoid bolted onto a Functor to deal with functions
     embedded in additional structure.
+=== Applicative in Use ===
+
+--- List Applicative --
+
+f = []
+(<*>) :: f (a -> b) -> f a -> f b
+(<*>) :: [] (a -> b) -> [] a -> [] b
+
+more syntactically typed
+(<*>) :: [(a -> b)] -> [a] -> [b]
+
+--- What does the List applicative do? ---
 
