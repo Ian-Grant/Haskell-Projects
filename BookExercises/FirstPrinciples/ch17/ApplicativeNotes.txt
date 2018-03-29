@@ -74,4 +74,3 @@ With Applicative we have ae Monoid for our structure and Functor for the values.
 In a sense Applicative is a monoid bolted onto a Functor to deal with functions
     embedded in additional structure.
 
-
