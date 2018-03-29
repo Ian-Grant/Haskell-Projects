@@ -40,7 +40,9 @@ Good exercises difficult seems random at times. But you can get feedback on your
 
 http://exercism.io/languages/haskell/about
 
+https://whatthefunctional.wordpress.com/2018/03/27/everyday-haskell/
 
+https://namc.in/2018-03-26-lenses-part-1
 
 99 Problems in Haskell
 
@@ -57,3 +59,4 @@ Compilers :D
 
 http://dev.stephendiehl.com/fun/
 
+https://johncarlosbaez.wordpress.com/2018/03/26/seven-sketches-in-compositionality/
