@@ -85,4 +85,8 @@ more syntactically typed
 (<*>) :: [(a -> b)] -> [a] -> [b]
 
 --- What does the List applicative do? ---
+applies each function in the function list onto the value in the same
+    postion in the value list
+applying the first list onto the second list
+
 
