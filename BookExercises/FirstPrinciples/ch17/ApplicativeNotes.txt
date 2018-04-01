@@ -88,5 +88,53 @@ more syntactically typed
 applies each function in the function list onto the value in the same
     postion in the value list
 applying the first list onto the second list
+--- Exercise: Lookup---
+    ---see Lookups.hs
 
+=== Identity ===
+Identity type is a way to add structure without changing semantics of what you're doing.
+
+--- Specializing the Types ---
+
+-- f - Identity
+type Id = Identity
+(<*>) :: f (a -> b) -> f a -> f b
+(<*>) :: Id (a -> b) -> Id a -> Id b
+
+pure :: a -> f a
+pure :: a -> Id a
+
+--- Exercise: Identity Instance ---
+    Write Applicative instance for Identity
+    --see Identity.hs
+
+=== Constant ===
+type C = Constant
+(<*>) :: f (a -> b) -> f a -> f b
+(<*>) :: C e (a -> b) -> C e a -> C e b
+
+pure :: a -> f a
+pure :: a -> C e a
+
+--- Exercise: Constant Instance ---
+    --- see Constant.hs
+=== Maybe Applicative ===
+
+Function can exist but can also just be a Nothing
+
+type M = Maybe
+(<*>) :: f (a -> b) -> f a -> f b
+(<*>) :: M (a -> b) -> M a -> M b
+
+pure :: a -> f a
+pure :: a -> M a
+
+instance Applicative Maybe where
+    pure = Just
+    Nothing <*> _ = Nothing
+    _ <*> Nothing = Nothing
+    Just f <*> Just a = Just (f a)
+
+--- Using the Maybe Applicative ---
+    ---- see Validate.hs
 
