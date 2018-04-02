@@ -21,4 +21,3 @@ mkPerson n a = case mkName n of
                 Just n' -> case mkAddress a of
                             Nothing -> Nothing
                             Just a' -> Just $ Person n' a'
-

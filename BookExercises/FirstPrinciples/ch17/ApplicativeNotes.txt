@@ -137,4 +137,8 @@ instance Applicative Maybe where
 
 --- Using the Maybe Applicative ---
     ---- see Validate.hs
+--- Exercise Fixer Upper
+    ---- see FixerUpper.hs
+
+=== Applicative Laws ===
 
