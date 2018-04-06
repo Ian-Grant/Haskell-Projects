@@ -142,3 +142,13 @@ instance Applicative Maybe where
 
 === Applicative Laws ===
 
+
+
+
+
+--- Interchange ---
+
+u <*> pure y = pure ($ y) <*> u
+
+
+
