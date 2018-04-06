@@ -142,13 +142,33 @@ instance Applicative Maybe where
 
 === Applicative Laws ===
 
+--- Identity ---
+Applies the id (Identity) function onto a structure and returns that structure.
+Id law states that all of below are equal.
+id [1..5]
+fmap id [1..5]
+pure id <*> [1..5]
 
+--- Composition ---
+The law is stating the result of composing the functions first and then applying it
+is the same as applying the functions then composing them.
+pure (.) <*> u <*> v <*> w = u <*> (v <*> w)
 
+--- Homomorphism ---
+A homomorphism is a structure preserving map between two algebric structures.
+Meaning the effect of applying a function that is embedded in some structure to
+a value tha is embedded in some structure should be the same as applying a
+function to a value without affecting any outside structure.
 
+pure f <*> pure x = pure (f x)
+
+pure (+1) <*> pure 1
+pure ((+1) 1)
+
+The gerneral idea of homomorphism law is that applying the function doesn't
+change the structure around the values. aka Functorial-ness.
 
 --- Interchange ---
 
 u <*> pure y = pure ($ y) <*> u
-
-
 
