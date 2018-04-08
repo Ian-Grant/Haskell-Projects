@@ -172,3 +172,4 @@ change the structure around the values. aka Functorial-ness.
 
 u <*> pure y = pure ($ y) <*> u
 
+
