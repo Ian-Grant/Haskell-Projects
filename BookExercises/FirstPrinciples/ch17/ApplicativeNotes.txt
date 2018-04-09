@@ -172,4 +172,22 @@ change the structure around the values. aka Functorial-ness.
 
 u <*> pure y = pure ($ y) <*> u
 
+Just (+ 2) <*> pure 2 == Just 4
+pure ($ 2) <*> Just (+ 2) == Just 4
 
+(Just (+2) <*> pure 2) == (pure ($ 2) <*> Just (+2))
+
+Examples to try:
+[(+1),(*2)] <*> pure 1 == pure ($ 1) <*> [(+1),(*2)]
+
+[(+1),(*2)] <*> pure 1  == [2,2]
+pure ($ 1) <*> [(+1),(*2)] == [2,2]
+
+Just (+3) <*> pure 1 == pure ($ 1) <*> Just (+3)
+
+Just (+3) <*> pure 1 = Just 4
+pure ($ 1) <*> Just (+3) = Just 4
+
+=== You knew this was coming ===
+Writing Applicative laws.
+    ---see BadMonoid.hs
