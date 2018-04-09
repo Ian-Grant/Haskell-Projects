@@ -16,5 +16,15 @@ instance Monoid Bull where
 
 instance EqProp Bull where (=-=) = eq
 
+applicative :: ( Show a, Show (m a), Show (m (a -> b))
+               , Show (m (b -> c)), Applicative m
+               , CoArbitrary a, EqProp (m a)
+               , EqProp (m b), EqProp (m c)
+               , Arbitrary a, Arbitrary b
+               , Arbitrary (m a)
+               , Arbitrary (m (a -> b))
+               , Arbitrary (m (b -> c)))
+               => m (a,b,c) -> TestBatch
+
 main :: IO ()
 main = quickBatch (monid Twoo)
