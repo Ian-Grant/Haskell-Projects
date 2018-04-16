@@ -191,3 +191,7 @@ pure ($ 1) <*> Just (+3) = Just 4
 === You knew this was coming ===
 Writing Applicative laws.
     ---see BadMonoid.hs
+
+=== ZipList Monoid ===
+The default monoid for list is concatination.
+But there is another way to monoidally combine lists.
